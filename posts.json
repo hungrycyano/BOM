@@ -1,6 +1,24 @@
 {
  "posts": [
   {
+   "slug": "2026-11-01-giscus-goatcounter",
+   "title": "ブログにコメント欄（giscus）とアクセス解析（GoatCounter）をつける手順",
+   "date": "2026-11-01T16:00:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "ブログ運営",
+   "tags": [
+    "giscus",
+    "GoatCounter",
+    "GitHub",
+    "GitHub Pages",
+    "設定"
+   ],
+   "type": "md",
+   "summary": "GitHub Pages のブログに、無料のコメント欄「giscus」とアクセス解析「GoatCounter」をつけた手順のメモ。特徴・設定手順・使い方を初心者向けにまとめました。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-01-sample-md",
    "title": "【サンプル】Markdown 記事の書き方（ChatGPT の初期設定メモ）",
    "date": "2026-11-01T09:00:00+09:00",
