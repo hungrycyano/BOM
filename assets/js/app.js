@@ -825,7 +825,9 @@
   }
   function trackPage() {
     if (!analytics.enabled || !state.route) return;
-    const hit = { path: state.route.key, title: document.title };
+    let path = state.route.key;
+    try { path = decodeURIComponent(path); } catch (e) { /* そのまま */ } // 日本語をダッシュボードで読めるように
+    const hit = { path, title: document.title };
     if (analytics.ready && window.goatcounter && window.goatcounter.count) sendCount(hit);
     else analytics.pending = hit;
   }
