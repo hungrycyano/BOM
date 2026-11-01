@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 // posts/ フォルダを走査して posts.json（記事メタ）と search-index.json（検索用本文）を生成する。
 //
-//   node scripts/build-index.mjs                  … 本番用（下書き・予約記事は除外）
-//   node scripts/build-index.mjs --include-drafts … ローカル確認用（下書き・予約記事も含める）
+//   node scripts/build-index.mjs                  … 本番用（下書きは除外）
+//   node scripts/build-index.mjs --include-drafts … ローカル確認用（下書きも含め、予約記事も時刻前から表示）
+//
+// 予約記事（date が未来）は posts.json に含め、ブラウザ側（app.js）が公開時刻を過ぎるまで隠す。
+// そのため、予約公開のために定期実行する必要はない。
 //
 // 外部パッケージ不要（Node.js 18 以上）。
 
@@ -141,6 +144,7 @@ async function main() {
   const search = {};
   const warnings = [];
   let skipped = 0;
+  let scheduled = 0;
 
   const dirs = existsSync(POSTS_DIR) ? await readdir(POSTS_DIR, { withFileTypes: true }) : [];
   for (const ent of dirs) {
@@ -163,10 +167,11 @@ async function main() {
     }
     const draft = data.draft === true;
     const future = d.date.getTime() > now.getTime();
-    if (!INCLUDE_DRAFTS && (draft || future)) {
+    if (draft && !INCLUDE_DRAFTS) {
       skipped++;
       continue;
     }
+    if (future) scheduled++;
 
     let type = String(data.type || 'md').toLowerCase();
     if (!TYPES.includes(type)) {
@@ -192,7 +197,7 @@ async function main() {
       summary,
       comments: data.comments !== false,
     };
-    if (INCLUDE_DRAFTS && (draft || future)) post.status = draft ? 'draft' : 'scheduled';
+    if (draft) post.status = 'draft'; // --include-drafts のときだけここに来る
     if (type === 'slides') post.slides = await detectSlides(postDir, data.slides);
     posts.push(post);
     search[slug] = text.slice(0, BODY_LIMIT);
@@ -207,13 +212,15 @@ async function main() {
     if (old !== json) await writeFile(full, json);
     return old !== json;
   };
-  const changed1 = await write('posts.json', { posts });
+  // preview: true のとき、ブラウザは予約記事も時刻前から表示する（ローカル確認用）
+  const changed1 = await write('posts.json', INCLUDE_DRAFTS ? { preview: true, posts } : { posts });
   const changed2 = await write('search-index.json', search);
 
   for (const w of warnings) console.warn('⚠ ' + w);
   console.log(
     `posts.json: ${posts.length} 件` +
-      (skipped ? `（下書き・予約 ${skipped} 件を除外）` : '') +
+      (scheduled ? `（うち予約 ${scheduled} 件：公開時刻まで非表示）` : '') +
+      (skipped ? `（下書き ${skipped} 件を除外）` : '') +
       (INCLUDE_DRAFTS ? '［--include-drafts］' : '') +
       (changed1 || changed2 ? ' … 更新しました' : ' … 変更なし'),
   );

@@ -7,9 +7,7 @@ on:
       - 'posts/**'
       - 'scripts/**'
       - '.github/workflows/build-index.yml'
-  schedule:
-    # 毎時5分（UTC）に実行し、公開時刻を過ぎた予約記事を一覧に載せる
-    - cron: '5 * * * *'
+  # 予約記事はブラウザ側で公開時刻をチェックして表示するため、定期実行は不要
   workflow_dispatch:
 
 permissions:
