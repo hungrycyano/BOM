@@ -358,6 +358,7 @@ mark { background: var(--mark); color: inherit; padding: 0 .1em; border-radius: 
   left: 50%; transform: translateX(-50%);
   bottom: calc(16px + var(--safe-b));
   display: flex; gap: 10px;
+  width: max-content;            /* 中央寄せで幅が縮んで折り返すのを防ぐ */
   transition: opacity .2s, transform .2s;
 }
 .fab[hidden] { display: none; }
@@ -366,6 +367,7 @@ mark { background: var(--mark); color: inherit; padding: 0 .1em; border-radius: 
   min-height: 48px; padding: 0 20px; border-radius: 999px; cursor: pointer;
   background: var(--surface); color: var(--text); border: 1px solid var(--border);
   box-shadow: var(--shadow); font-size: 1rem; font-weight: 700;
+  white-space: nowrap; word-break: keep-all; overflow-wrap: normal; /* 文字を横一列に */
 }
 .fab-btn:hover { border-color: var(--accent); }
 #fab-search { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
