@@ -36,7 +36,9 @@
 
   const state = {
     config: DEFAULT_CONFIG,
-    posts: [],
+    allPosts: [], // posts.json の全記事（予約記事を含む）
+    posts: [],    // いま公開中の記事だけ（一覧・検索・最新記事はこちらを使う）
+    preview: false,
     bodies: null,
     route: null,
     shown: 0,
@@ -215,7 +217,21 @@
 
   function isList(r) { return r && LIST_ROUTES.includes(r.name); }
 
+  // 予約公開：公開日時（日本時間で記録済み）を過ぎた記事だけを表示対象にする。
+  // GitHub の定期実行を待たずに、指定時刻ちょうどから表示される。
+  function refreshVisible() {
+    const now = Date.now();
+    const isFuture = (p) => { const t = Date.parse(p.date); return !Number.isNaN(t) && t > now; };
+    if (state.preview) {
+      // ローカル確認用（--include-drafts）：予約記事も「予約」バッジ付きで表示
+      state.posts = state.allPosts.map((p) => (isFuture(p) && !p.status ? Object.assign({}, p, { status: 'scheduled' }) : p));
+    } else {
+      state.posts = state.allPosts.filter((p) => !isFuture(p));
+    }
+  }
+
   function onRouteChange() {
+    refreshVisible();
     const prev = state.route;
     if (isList(prev)) {
       state.lastList = { key: prev.key, y: window.scrollY, shown: state.shown };
@@ -490,7 +506,8 @@
     const { data, body } = parseFrontMatter(text);
     const idx = state.posts.findIndex((p) => p.slug === slug);
     const listed = idx !== -1;
-    const meta = listed ? state.posts[idx] : {
+    const known = listed ? null : state.allPosts.find((p) => p.slug === slug); // 公開前の予約記事
+    const meta = listed ? state.posts[idx] : known ? Object.assign({}, known, { status: known.status || 'scheduled' }) : {
       slug,
       title: String(data.title || slug),
       date: String(data.date || slug.slice(0, 10)).replace(' ', 'T').replace(/^(\d{4}-\d{2}-\d{2})$/, '$1T00:00') + ':00+09:00',
@@ -1036,11 +1053,13 @@
     applyConfig();
     try {
       const data = await fetchJSON('posts.json');
-      state.posts = Array.isArray(data) ? data : (data.posts || []);
+      state.allPosts = Array.isArray(data) ? data : (data.posts || []);
+      state.preview = !!(data && data.preview);
     } catch (e) {
       console.warn('posts.json を読み込めませんでした', e);
-      state.posts = [];
+      state.allPosts = [];
     }
+    refreshVisible();
     observer.observe(main, { childList: true, subtree: true });
     setupPanel();
     setupFab();
