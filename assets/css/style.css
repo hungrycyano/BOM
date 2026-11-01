@@ -331,7 +331,7 @@ mark { background: var(--mark); color: inherit; padding: 0 .1em; border-radius: 
 .story-scene h2 { font-size: 1.25rem; line-height: 1.5; margin: 0 0 .5rem; border: 0; padding: 0; }
 .story-media img {
   display: block; width: 100%; border-radius: 8px; cursor: zoom-in; margin: 0;
-  background: var(--surface-2);
+  background: transparent; /* PNG の透明部分をそのまま見せる */
 }
 .story-text > :last-child { margin-bottom: 0; }
 @media (min-width: 769px) {
