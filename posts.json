@@ -1,6 +1,20 @@
 {
  "posts": [
   {
+   "slug": "2026-11-02-git-bash-k",
+   "title": "GitBashの黒画面でコマンドを打つ緊張感",
+   "date": "2026-11-02T07:00:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "GitHub",
+   "tags": [
+    "GitBash"
+   ],
+   "type": "story",
+   "summary": "変更や、追加したいファイルをローカルのパソコンで作成して、GitHubに届ける作業です。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-01-giscus-goatcounter",
    "title": "ブログにコメント欄（giscus）とアクセス解析（GoatCounter）をつける手順",
    "date": "2026-11-01T16:00:00+09:00",
