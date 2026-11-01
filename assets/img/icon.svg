@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="B.O.M. アイコン">
+  <rect width="512" height="512" rx="96" fill="#1f2937"/>
+  <!-- 回路パターン -->
+  <g stroke="#22c55e" stroke-width="10" stroke-linecap="round" fill="none" opacity=".55">
+    <path d="M40 150h70l30 30M40 360h60l40-40M472 300h-60l-30 30M472 420h-90l-30-30M120 470v-50l30-30M390 470v-40"/>
+  </g>
+  <g fill="#22c55e" opacity=".75">
+    <circle cx="40" cy="150" r="12"/><circle cx="40" cy="360" r="12"/><circle cx="472" cy="300" r="12"/>
+    <circle cx="472" cy="420" r="12"/><circle cx="120" cy="470" r="12"/><circle cx="390" cy="470" r="12"/>
+  </g>
+  <!-- 導火線と火花 -->
+  <path d="M330 150c30-40 60-55 95-50" stroke="#d6c7a1" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <g transform="translate(430 98)">
+    <circle r="26" fill="#f97316"/>
+    <circle r="14" fill="#fde047"/>
+    <path d="M0-46v18M0 28v18M-46 0h18M28 0h18M-32-32l12 12M20 20l12 12M32-32l-12 12M-20 20l-12 12" stroke="#fde047" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <!-- 爆弾本体 -->
+  <rect x="290" y="130" width="64" height="56" rx="10" transform="rotate(35 322 158)" fill="#4b5563"/>
+  <circle cx="240" cy="300" r="150" fill="#0f172a" stroke="#475569" stroke-width="8"/>
+  <path d="M150 230a110 110 0 0 1 70-60" stroke="#94a3b8" stroke-width="16" stroke-linecap="round" fill="none" opacity=".7"/>
+  <!-- 文字 -->
+  <text x="240" y="335" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="96" fill="#f8fafc" letter-spacing="2">BOM</text>
+</svg>

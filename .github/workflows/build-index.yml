@@ -1,0 +1,50 @@
+name: Build posts index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/**'
+      - 'scripts/**'
+      - '.github/workflows/build-index.yml'
+  schedule:
+    # 毎時5分（UTC）に実行し、公開時刻を過ぎた予約記事を一覧に載せる
+    - cron: '5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Tokyo
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate posts.json / search-index.json
+        run: node scripts/build-index.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- posts.json search-index.json; then
+            echo "変更なし"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts.json search-index.json
+          git commit -m "Update posts index (auto)"
+          git pull --rebase origin main
+          git push origin HEAD:main

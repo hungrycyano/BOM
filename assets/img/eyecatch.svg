@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="B.O.M. アイキャッチ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e3a5f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#f97316" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="400" fill="url(#bg)"/>
+  <!-- 回路 -->
+  <g stroke="#22c55e" stroke-width="4" fill="none" stroke-linecap="round" opacity=".45">
+    <path d="M0 80h220l40 40h180M0 300h160l60-60h200l30 30h120"/>
+    <path d="M1600 90h-240l-40 40h-160M1600 320h-180l-50-50h-220l-30 30h-90"/>
+    <path d="M300 400v-70l40-40M1250 0v60l-40 40M500 0v50l30 30h80M1080 400v-50l-30-30h-90"/>
+  </g>
+  <g fill="#22c55e" opacity=".7">
+    <circle cx="440" cy="120" r="8"/><circle cx="570" cy="270" r="8"/><circle cx="1160" cy="130" r="8"/>
+    <circle cx="1030" cy="300" r="8"/><circle cx="610" cy="80" r="8"/><circle cx="960" cy="320" r="8"/>
+  </g>
+  <!-- 中央：爆弾 + 火花 -->
+  <circle cx="800" cy="200" r="190" fill="url(#glow)"/>
+  <path d="M845 115c25-35 55-50 90-45" stroke="#d6c7a1" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <g transform="translate(940 68)">
+    <circle r="18" fill="#f97316"/><circle r="9" fill="#fde047"/>
+    <path d="M0-34v12M0 22v12M-34 0h12M22 0h12M-24-24l9 9M15 15l9 9M24-24l-9 9M-15 15l-9 9" stroke="#fde047" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <rect x="815" y="100" width="44" height="38" rx="7" transform="rotate(35 837 119)" fill="#4b5563"/>
+  <circle cx="790" cy="215" r="95" fill="#0b1220" stroke="#475569" stroke-width="6"/>
+  <path d="M735 170a70 70 0 0 1 45-38" stroke="#94a3b8" stroke-width="10" stroke-linecap="round" fill="none" opacity=".7"/>
+  <text x="790" y="236" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="58" fill="#f8fafc">BOM</text>
+  <!-- 小さなアイコン群（AI・PC・スマホ・カーナビ） -->
+  <g stroke="#cbd5e1" stroke-width="5" fill="none" stroke-linejoin="round" opacity=".85">
+    <rect x="330" y="160" width="110" height="72" rx="6"/><path d="M310 250h150"/>
+    <rect x="1140" y="150" width="56" height="100" rx="10"/><circle cx="1168" cy="236" r="4" fill="#cbd5e1"/>
+    <path d="M1300 260l40-100 40 100-40-25z"/>
+    <circle cx="230" cy="200" r="34"/><path d="M215 200h30M230 185v30M196 200h-14M264 200h14M230 166v-14M230 234v14"/>
+  </g>
+</svg>
