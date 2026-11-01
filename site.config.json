@@ -1,0 +1,21 @@
+{
+  "title": "B.O.M.　ボム",
+  "subtitles": [
+    "Bit Of Madness（少しの狂気）",
+    "Behavioral Optimization Module（行動最適化モジュール）"
+  ],
+  "description": "AI・PC・スマホ・カーナビなど、増え続ける日常使いのITシステムの備忘録。",
+  "icon": "assets/img/icon.svg",
+  "eyecatch": "assets/img/eyecatch.svg",
+  "eyecatchAlt": "B.O.M. のアイキャッチ画像（回路と爆弾のイラスト）",
+  "pageSize": 20,
+  "comments": {
+    "repo": "",
+    "repoId": "",
+    "category": "",
+    "categoryId": ""
+  },
+  "analytics": {
+    "goatcounter": ""
+  }
+}

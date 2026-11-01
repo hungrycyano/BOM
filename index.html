@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>B.O.M.　ボム</title>
+  <meta name="description" content="AI・PC・スマホ・カーナビなど、増え続ける日常使いのITシステムの備忘録。">
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="vendor/marked.min.js" defer></script>
+  <script src="vendor/purify.min.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#/" aria-label="ホームへ">
+        <img class="brand-icon" id="site-icon" src="assets/img/icon.svg" alt="" width="56" height="56">
+        <span class="brand-text">
+          <span class="site-title" id="site-title">B.O.M.　ボム</span>
+          <span class="site-subtitle" id="site-subtitle">
+            <span>Bit Of Madness（少しの狂気）</span>
+            <span>Behavioral Optimization Module（行動最適化モジュール）</span>
+          </span>
+        </span>
+      </a>
+
+      <details class="menu" id="menu">
+        <summary class="menu-button" aria-label="メニュー">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <nav class="menu-panel" aria-label="サイトメニュー">
+          <a href="#/">ホーム</a>
+          <button type="button" data-open-panel="category">カテゴリー</button>
+          <button type="button" data-open-panel="tag">タグ</button>
+          <button type="button" data-open-panel="month">月別アーカイブ</button>
+          <button type="button" data-open-panel="keyword">キーワード検索</button>
+          <a href="#/about">このブログについて</a>
+        </nav>
+      </details>
+    </div>
+    <div class="eyecatch">
+      <img id="site-eyecatch" src="assets/img/eyecatch.svg" alt="" width="1600" height="400" fetchpriority="high">
+    </div>
+  </header>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <p class="loading">読み込み中…</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="footer-year"></span> <span id="footer-title">B.O.M.　ボム</span></p>
+  </footer>
+
+  <!-- 固定ボタン（約300pxスクロールで表示） -->
+  <div class="fab" id="fab" hidden>
+    <button type="button" class="fab-btn" id="fab-back">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="fab-back-label">戻る</span>
+    </button>
+    <button type="button" class="fab-btn" id="fab-search">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span>検索</span>
+    </button>
+  </div>
+
+  <!-- 検索パネル（タブ：タグ／月別／カテゴリー／キーワード） -->
+  <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+  <div class="sheet" id="search-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h2 id="sheet-title" class="sheet-title">検索・絞り込み</h2>
+      <button type="button" class="icon-btn" id="sheet-close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="絞り込みの種類">
+      <button type="button" role="tab" id="tab-tag" aria-controls="tabpanel-tag" data-tab="tag">タグ</button>
+      <button type="button" role="tab" id="tab-month" aria-controls="tabpanel-month" data-tab="month">月別</button>
+      <button type="button" role="tab" id="tab-category" aria-controls="tabpanel-category" data-tab="category">カテゴリー</button>
+      <button type="button" role="tab" id="tab-keyword" aria-controls="tabpanel-keyword" data-tab="keyword">キーワード</button>
+    </div>
+    <div class="sheet-body">
+      <div role="tabpanel" id="tabpanel-tag" aria-labelledby="tab-tag" data-panel="tag"></div>
+      <div role="tabpanel" id="tabpanel-month" aria-labelledby="tab-month" data-panel="month" hidden></div>
+      <div role="tabpanel" id="tabpanel-category" aria-labelledby="tab-category" data-panel="category" hidden></div>
+      <div role="tabpanel" id="tabpanel-keyword" aria-labelledby="tab-keyword" data-panel="keyword" hidden>
+        <form class="search-form" id="search-form" role="search">
+          <label for="search-input" class="visually-hidden">キーワード</label>
+          <input type="search" id="search-input" name="q" placeholder="キーワード（スペースで AND）" autocomplete="off" enterkeyhint="search">
+          <button type="submit" class="btn-primary">検索</button>
+        </form>
+        <p class="hint">タイトル・要約・タグ・カテゴリー・本文から探します。全角/半角・大文字/小文字・ひらがな/カタカナは区別しません。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 画像拡大（ライトボックス） -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="画像の拡大表示" hidden>
+    <button type="button" class="icon-btn lightbox-close" id="lightbox-close" aria-label="閉じる">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <img id="lightbox-img" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <noscript><p class="noscript">このサイトの表示には JavaScript を有効にしてください。</p></noscript>
+</body>
+</html>
