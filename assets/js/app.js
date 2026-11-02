@@ -717,7 +717,13 @@
       prev.disabled = i === 0;
       next.disabled = i === n - 1;
       thumbs.forEach((b, k2) => b.setAttribute('aria-current', k2 === i ? 'true' : 'false'));
-      if (thumbs[i]) thumbs[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      // サムネイル列だけを横にスクロール（ページ全体は動かさない）
+      const strip = thumbs[i] && thumbs[i].parentElement;
+      if (strip) {
+        const t = thumbs[i];
+        if (t.offsetLeft < strip.scrollLeft) strip.scrollLeft = t.offsetLeft - 8;
+        else if (t.offsetLeft + t.offsetWidth > strip.scrollLeft + strip.clientWidth) strip.scrollLeft = t.offsetLeft + t.offsetWidth - strip.clientWidth + 8;
+      }
       [i - 1, i + 1].forEach((k2) => { if (srcs[k2]) { const pre = new Image(); pre.src = srcs[k2]; } });
     };
     prev.addEventListener('click', () => show(i - 1));
