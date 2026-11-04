@@ -1,6 +1,23 @@
 {
  "posts": [
   {
+   "slug": "2026-11-04-mosaic-tiles",
+   "title": "図形を並べて模様を作る「モザイク・タイル」を作りました",
+   "date": "2026-11-04T18:10:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "Tool",
+   "tags": [
+    "GitHub",
+    "GitHub Pages",
+    "プルリクエスト",
+    "Claude"
+   ],
+   "type": "story",
+   "summary": "Claude と一緒に模様づくりのツール「モザイク・タイル」を作りました。今回はGitBashでのタイプミスに時間を取られましたが無事ツール作成できました。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-03-slow-game-pr",
    "title": "簡単なゲームを作って、プルリクエストの練習をした話",
    "date": "2026-11-03T10:50:00+09:00",
