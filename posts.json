@@ -1,6 +1,24 @@
 {
  "posts": [
   {
+   "slug": "2026-11-04-push-error",
+   "title": "プルリクエストができて「やったー」→ git push でエラーが出て真っ青になった話",
+   "date": "2026-11-04T19:15:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "GitHub",
+   "tags": [
+    "GitHub",
+    "Git Bash",
+    "git push",
+    "エラー",
+    "失敗談"
+   ],
+   "type": "md",
+   "summary": "プルリクエストができて浮かれていたら、記事を Git Bash で push したときに「fatal error in commit_refs」。真っ青になったけれど、原因は GitHub 側の一時的なエラーで、push し直すだけで直りました。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-04-mosaic-tiles",
    "title": "図形を並べて模様を作る「モザイク・タイル」を作りました",
    "date": "2026-11-04T18:10:00+09:00",
