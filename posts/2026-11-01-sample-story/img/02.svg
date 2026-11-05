@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
-  <rect width="600" height="400" fill="#f1f5f9"/>
-  <rect x="0" y="0" width="600" height="56" fill="#22c55e"/>
-  <text x="24" y="38" font-family="sans-serif" font-size="24" font-weight="700" fill="#fff">STEP 2　SDカードにコピー</text>
-  <g transform="translate(0 20)"><path d="M230 90h110l40 40v170h-150z" fill="#1f2937"/><g fill="#fbbf24"><rect x="250" y="100" width="14" height="40"/><rect x="274" y="100" width="14" height="40"/><rect x="298" y="100" width="14" height="40"/><rect x="322" y="100" width="14" height="40"/></g><text x="305" y="240" font-family="sans-serif" font-size="40" font-weight="700" fill="#f9fafb" text-anchor="middle">SD</text></g>
-  <text x="580" y="388" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="end">（仮画像）</text>
-</svg>
