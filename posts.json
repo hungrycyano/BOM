@@ -124,22 +124,6 @@
    "comments": true
   },
   {
-   "slug": "2026-11-01-sample-md",
-   "title": "【サンプル】Markdown 記事の書き方（ChatGPT の初期設定メモ）",
-   "date": "2026-11-01T09:00:00+09:00",
-   "hasTime": true,
-   "month": "2026-11",
-   "category": "AI",
-   "tags": [
-    "ChatGPT",
-    "設定",
-    "サンプル"
-   ],
-   "type": "md",
-   "summary": "普通の文章形式（type: md）のサンプル記事です。見出し・リスト・表・コード・画像の書き方を確認できます。",
-   "comments": true
-  },
-  {
    "slug": "2026-11-01-sample-slides",
    "title": "【サンプル】スライド形式（PC 買い替え時のチェックリスト）",
    "date": "2026-11-01T08:00:00+09:00",
