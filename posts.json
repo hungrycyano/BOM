@@ -124,34 +124,6 @@
    "comments": true
   },
   {
-   "slug": "2026-11-01-sample-slides",
-   "title": "【サンプル】スライド形式（PC 買い替え時のチェックリスト）",
-   "date": "2026-11-01T08:00:00+09:00",
-   "hasTime": true,
-   "month": "2026-11",
-   "category": "PC",
-   "tags": [
-    "Windows11",
-    "チェックリスト",
-    "サンプル"
-   ],
-   "type": "slides",
-   "summary": "スライド形式（type: slides）のサンプルです。画像連番（slides/01.png …）を左右スワイプ・ボタン・矢印キーで送れます。",
-   "comments": true,
-   "slides": {
-    "images": [
-     "slides/01.png",
-     "slides/02.png",
-     "slides/03.png",
-     "slides/04.png",
-     "slides/05.png"
-    ],
-    "pdf": null,
-    "html": null,
-    "pptx": null
-   }
-  },
-  {
    "slug": "2026-11-01-sample-story",
    "title": "【サンプル】紙芝居形式（カーナビに地図データを更新する手順）",
    "date": "2026-11-01T07:00:00+09:00",
