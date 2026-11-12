@@ -1,6 +1,22 @@
 {
  "posts": [
   {
+   "slug": "2026-11-12-inkscape-cat",
+   "title": "Inkscape でアイコン用の猫を描いた（今回は大きな失敗なし！）",
+   "date": "2026-11-12T23:30:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "Tool",
+   "tags": [
+    "Inkscape",
+    "アイコン",
+    "ノード"
+   ],
+   "type": "md",
+   "summary": "練習の成果を試しに、Inkscape でアイコン用の猫を描きました。めずらしく大きな失敗はなし。ノードで曲線を作るのが楽しくなってきました。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-09-inkscape-practice",
    "title": "座布団ピザのリベンジ！苦手だった Inkscape を数時間で練習した話",
    "date": "2026-11-09T22:05:00+09:00",
