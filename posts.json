@@ -1,6 +1,23 @@
 {
  "posts": [
   {
+   "slug": "2026-11-12-cursor-save",
+   "title": "Cursor で書き直したのに、保存していなかった話（＋Cursor で記事を書くコツ）",
+   "date": "2026-11-12T23:55:00+09:00",
+   "hasTime": true,
+   "month": "2026-11",
+   "category": "Tool",
+   "tags": [
+    "Cursor",
+    "保存",
+    "Markdown",
+    "失敗談"
+   ],
+   "type": "md",
+   "summary": "Cursor で書き直した下書きを、保存しないまま送ってしまい、前の記事と同じ文章が届いた失敗談。自動保存の設定と、Cursor でブログ記事を書くときのコツもまとめました。",
+   "comments": true
+  },
+  {
    "slug": "2026-11-12-inkscape-cat",
    "title": "Inkscape でアイコン用の猫を描いた（今回は大きな失敗なし！）",
    "date": "2026-11-12T23:30:00+09:00",
